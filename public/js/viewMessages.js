@@ -9,10 +9,10 @@ function getMessages() {
         console.log(data);
         for (let key in data) {
             console.log(key, data[key]);
-            if (key === passcode.value) {
+            if (data[key].passcode === passcode.value) {
                 console.log("match found");
                 const message = document.getElementById('message');
-                message.innerText = data[key];
+                message.innerText = data[key].message;
                 flag = 1;
                 numTries = 0;
             }
@@ -33,5 +33,6 @@ function getMessages() {
 function timeout() {
     setTimeout(function() {
         msgBtn.disabled = 'false';
+        console.log("timeout function works");
     }, 3000)
 }
