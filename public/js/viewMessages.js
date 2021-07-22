@@ -22,7 +22,7 @@ function getMessages() {
                 alert('ERROR PASSWORD NOT FOUND');
                 if (++numTries >= 3) {
                     const msgBtn = document.getElementById('viewMsg');
-                    msgBtn.disabled = 'true';
+                    msgBtn.disabled = true;
                     timeout();
                 }
             }
@@ -32,7 +32,8 @@ function getMessages() {
 
 function timeout() {
     setTimeout(function() {
-        msgBtn.disabled = 'false';
-        console.log("timeout function works");
-    }, 3000)
+        const msgBtn = document.getElementById('viewMsg');
+        msgBtn.disabled = false;
+        console.log("timeout function works");        
+    }, 3000);
 }
